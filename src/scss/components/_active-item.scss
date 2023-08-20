@@ -1,0 +1,18 @@
+@use "../helpers/colors" as *;
+
+@mixin active-item {
+  &:hover::before,
+  &.active::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: $main-color;
+    left: 0;
+    z-index: 5;
+  }
+  &:not(.active):hover::before {
+    opacity: 1;
+    background-color: $third-color;
+  }
+}

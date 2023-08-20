@@ -1,0 +1,172 @@
+@use "../helpers/" as *;
+.technology {
+  $ancest: &;
+  min-height: 100%;
+  min-width: 100%;
+  background-image: url("../assets/technology/background-technology-desktop.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  @include breakpoint("mobile") {
+    background-image: url("../assets/technology/background-technology-mobile.jpg");
+  }
+  @include breakpoint("tablet") {
+    background-image: url("../assets/technology/background-technology-tablet.jpg");
+  }
+
+  color: white;
+  .page-content {
+    padding: 200px 0px 30px 130px;
+
+    @include breakpoint("tablet") {
+      padding: 140px 0px 0px;
+    }
+    @include breakpoint("mobile") {
+      margin-bottom: 30px;
+    }
+    #{$ancest}__title {
+      font-family: $secondary-header-font;
+      font-size: map-get($map: $font-sizes, $key: "h5");
+      letter-spacing: 4.75px;
+      font-weight: 400;
+      margin-bottom: 50px;
+      @include breakpoint("tablet") {
+        font-size: map-get($map: $font-sizes, $key: "h5") * 0.8;
+        margin-left: 45px;
+      }
+      span {
+        display: inline-block;
+        color: $third-color;
+        font-weight: 600;
+        margin-right: 10px;
+      }
+      p {
+        display: inline-block;
+        color: $main-color;
+      }
+    }
+
+    #{$ancest}__container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 80px;
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        @include breakpoint("tablet") {
+          width: 100%;
+          flex-direction: row;
+          justify-content: center;
+        }
+        .option {
+          font-family: $primary-header-font;
+          font-size: map-get($map: $font-sizes, $key: "h4");
+          font-weight: 400;
+          letter-spacing: 2px;
+          width: 80px;
+          height: 80px;
+          color: $main-color;
+          border-radius: 50%;
+          border: 1px solid rgba($main-color, 0.3);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+
+          &:hover {
+            border: 1px solid rgba($main-color, 1);
+          }
+          &.active {
+            background-color: $main-color;
+            color: black;
+          }
+        }
+      }
+      #{$ancest}__info {
+        display: flex;
+        flex-direction: column;
+        max-width: 470px;
+        text-align: left;
+        margin: 0px auto;
+        @include breakpoint("tablet") {
+          max-width: 900px;
+          text-align: center;
+          align-items: center;
+        }
+        h6 {
+          font-family: $secondary-header-font;
+          font-size: map-get($map: $font-sizes, $key: "h6");
+          font-weight: 400;
+          letter-spacing: 2.7px;
+
+          color: $main-color;
+          opacity: 0.5;
+          margin-bottom: 10px;
+        }
+        h3 {
+          font-family: $primary-header-font;
+          font-size: map-get($map: $font-sizes, $key: "h3");
+          font-weight: 400;
+          color: $main-color;
+          margin-bottom: 10px;
+          @include breakpoint("tablet") {
+            font-size: map-get($map: $font-sizes, $key: "h3") * 0.8;
+          }
+          @include breakpoint("mobile") {
+            font-size: map-get($map: $font-sizes, $key: "h3") * 0.6;
+          }
+        }
+        p {
+          max-width: 60%;
+          font-family: $primary-body-font;
+          font-size: map-get($map: $font-sizes, $key: "body");
+          font-weight: 400;
+          line-height: 32px;
+          color: $second-color;
+          @include breakpoint("tablet") {
+            font-size: map-get($map: $font-sizes, $key: "body") * 0.8;
+            max-width: 95%;
+          }
+          @include breakpoint("mobile") {
+            font-size: map-get($map: $font-sizes, $key: "body") * 0.8;
+          }
+        }
+      }
+      #{$ancest}__image {
+        width: 515px;
+        height: 527px;
+        img:nth-child(1) {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+        img:nth-child(2) {
+          display: none;
+        }
+        @include breakpoint("tablet") {
+          width: 768px;
+          height: 310px;
+          img:nth-child(1) {
+            display: none;
+          }
+          img:nth-child(2) {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+          margin: 0px auto;
+          order: -2;
+        }
+        @include breakpoint("mobile") {
+          margin-bottom: -70px;
+        }
+      }
+    }
+  }
+}

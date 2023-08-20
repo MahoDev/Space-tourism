@@ -1,0 +1,176 @@
+@use "../helpers/" as *;
+.crew {
+  $ancest: &;
+  min-height: 100%;
+  min-width: 100%;
+  background-image: url("../assets/crew/background-crew-desktop.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  @include breakpoint("mobile") {
+    background-image: url("../assets/crew/background-crew-mobile.jpg");
+  }
+  @include breakpoint("tablet") {
+    background-image: url("../assets/crew/background-crew-tablet.jpg");
+  }
+
+  color: white;
+  .page-content {
+    padding: 200px 0px 30px 130px;
+
+    @include breakpoint("tablet") {
+      padding: 140px 45px 0px;
+    }
+    @include breakpoint("mobile") {
+      margin-bottom: 30px;
+    }
+    #{$ancest}__title {
+      font-family: $secondary-header-font;
+      font-size: map-get($map: $font-sizes, $key: "h5");
+      letter-spacing: 4.75px;
+      font-weight: 400;
+      // margin: 0px 100px 30px 130px;
+
+      @include breakpoint("tablet") {
+        margin: 0px 0px 60px 0px;
+        font-size: map-get($map: $font-sizes, $key: "h5") * 0.8;
+      }
+      span {
+        display: inline-block;
+        color: $third-color;
+        font-weight: 600;
+        margin-right: 10px;
+      }
+      p {
+        display: inline-block;
+        color: $main-color;
+      }
+    }
+
+    #{$ancest}__container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 50px;
+      // margin: 0px 100px;
+      @include breakpoint("tablet") {
+        justify-content: center;
+        text-align: center;
+        gap: 50px;
+      }
+    }
+
+    #{$ancest}__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 620px;
+      text-align: left;
+      @include breakpoint("tablet") {
+        max-width: 900px;
+        text-align: center;
+        align-items: center;
+      }
+      h4 {
+        font-family: $primary-header-font;
+        font-size: map-get($map: $font-sizes, $key: "h4");
+        font-weight: 400;
+        color: $main-color;
+        opacity: 0.5;
+        margin-bottom: 10px;
+        @include breakpoint("tablet") {
+          font-size: map-get($map: $font-sizes, $key: "h4") * 0.8;
+        }
+        @include breakpoint("mobile") {
+          font-size: map-get($map: $font-sizes, $key: "h4") * 0.7;
+        }
+      }
+      h3 {
+        font-family: $primary-header-font;
+        font-size: map-get($map: $font-sizes, $key: "h3");
+        font-weight: 400;
+        color: $main-color;
+        margin-bottom: 10px;
+        @include breakpoint("tablet") {
+          font-size: map-get($map: $font-sizes, $key: "h3") * 0.8;
+        }
+        @include breakpoint("mobile") {
+          font-size: map-get($map: $font-sizes, $key: "h3") * 0.6;
+        }
+      }
+      p {
+        max-width: 60%;
+        min-height: 200px;
+        font-family: $primary-body-font;
+        font-size: map-get($map: $font-sizes, $key: "body");
+        font-weight: 400;
+        line-height: 32px;
+        color: $second-color;
+        @include breakpoint("tablet") {
+          font-size: map-get($map: $font-sizes, $key: "body") * 0.8;
+        }
+        @include breakpoint("mobile") {
+          font-size: map-get($map: $font-sizes, $key: "body") * 0.8;
+        }
+      }
+      .options {
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+
+        @include breakpoint("tablet") {
+          justify-content: center;
+        }
+        @include breakpoint("mobile") {
+          order: -1;
+        }
+        .option {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background-color: rgba($third-color, 0.6);
+          cursor: pointer;
+          @include breakpoint("tablet") {
+            width: 10px;
+            height: 10px;
+          }
+          &:hover {
+            background-color: rgba($third-color, 1);
+          }
+          &.active {
+            background-color: $main-color;
+          }
+        }
+      }
+    }
+    #{$ancest}__image {
+      min-width: auto;
+      position: relative;
+      margin-left: -50px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      @include breakpoint("tablet") {
+        margin-left: 0px;
+      }
+      @include breakpoint("mobile") {
+        order: -2;
+        width: 100% * 0.7;
+        height: 100% * 0.7;
+        &::before {
+          content: "";
+          position: absolute;
+          height: 1px;
+          width: 150%;
+          background-color: rgba(151, 151, 151, 0.5);
+          bottom: 0;
+          left: -25%;
+        }
+      }
+    }
+  }
+}

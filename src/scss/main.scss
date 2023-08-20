@@ -1,0 +1,9 @@
+@use "./base" as *;
+@use "./helpers" as *;
+@use "./layout" as *;
+@use "./components/" as *;
+@use "./pages/" as *;
+
+body {
+  overflow-x: hidden;
+}

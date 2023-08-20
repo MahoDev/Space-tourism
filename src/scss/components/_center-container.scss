@@ -1,0 +1,9 @@
+.center-container {
+  @media (min-width: 1440px) {
+    width: 1440px;
+    margin: 0px auto;
+  }
+}
+
+/* I decided to make the containers' widths lower than the screen by 40px 
+but you can increase or decrease as you like.*/

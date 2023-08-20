@@ -1,0 +1,171 @@
+@use "../helpers/" as *;
+@use "../components/active-item.scss" as *;
+
+.destination {
+  $ancest: &;
+  min-height: 100%;
+  min-width: 100%;
+  background-image: url("../assets/destination/background-destination-desktop.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  @include breakpoint("mobile") {
+    background-image: url("../assets/destination/background-destination-mobile.jpg");
+  }
+  @include breakpoint("tablet") {
+    background-image: url("../assets/destination/background-destination-tablet.jpg");
+  }
+
+  color: white;
+  .page-content {
+    padding: 200px 0px 30px 130px;
+
+    @include breakpoint("tablet") {
+      padding: 140px 45px 0px;
+    }
+    // height: 800px;
+
+    #{$ancest}__title {
+      font-family: $secondary-header-font;
+      font-size: map-get($map: $font-sizes, $key: "h5");
+      letter-spacing: 4.75px;
+      font-weight: 400;
+      margin-bottom: 50px;
+      @include breakpoint("tablet") {
+        font-size: map-get($map: $font-sizes, $key: "h5") * 0.8;
+      }
+      span {
+        display: inline-block;
+        color: $third-color;
+        font-weight: 600;
+        margin-right: 10px;
+      }
+      p {
+        display: inline-block;
+        color: $main-color;
+      }
+    }
+
+    #{$ancest}__container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 150px;
+      @include breakpoint("tablet") {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+    #{$ancest}__celestial-body {
+      min-width: 445px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      @include breakpoint("tablet") {
+        min-width: 445px * 0.8;
+      }
+      @include breakpoint("mobile") {
+        min-width: 356px * 0.7;
+      }
+    }
+
+    #{$ancest}__info {
+      max-width: 445px;
+      @include breakpoint("tablet") {
+        max-width: 573px;
+      }
+      #{$ancest}__cel-bodies {
+        display: flex;
+        gap: 40px;
+        color: $second-color;
+        font-family: $secondary-header-font;
+        font-size: map-get($map: $font-sizes, $key: "h6");
+        font-weight: 400;
+        letter-spacing: 2.7px;
+        margin-bottom: 50px;
+        @include breakpoint("tablet") {
+          justify-content: center;
+          text-align: center;
+        }
+        @include breakpoint("mobile") {
+          gap: 20px;
+        }
+
+        li {
+          cursor: pointer;
+          width: fit-content;
+          position: relative;
+
+          @include active-item();
+
+          &:not(.active):hover::before,
+          &.active::before {
+            bottom: -10px;
+          }
+        }
+      }
+      h2 {
+        font-family: $primary-header-font;
+        font-size: map-get($map: $font-sizes, $key: "h2");
+        font-weight: 400;
+        margin: 20px 0;
+        @include breakpoint("tablet") {
+          font-size: map-get($map: $font-sizes, $key: "h2") * 0.8;
+        }
+        @include breakpoint("mobile") {
+          font-size: map-get($map: $font-sizes, $key: "h2") * 0.6;
+        }
+      }
+      p {
+        font-family: $primary-body-font;
+        font-size: map-get($map: $font-sizes, $key: "body");
+        font-weight: 400;
+        color: $second-color;
+        line-height: 32px;
+        margin-bottom: 30px;
+        @include breakpoint("tablet") {
+          font-size: map-get($map: $font-sizes, $key: "body") * 0.8;
+        }
+      }
+      .seperator {
+        height: 1px;
+        width: 100%;
+        background-color: #383b4b;
+        margin: 35px 0px;
+      }
+      #{$ancest}__travel-info {
+        display: flex;
+        gap: 40px;
+        @include breakpoint("tablet") {
+          justify-content: center;
+          gap: 70px;
+        }
+        @include breakpoint("mobile") {
+          flex-direction: column;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        div {
+          h6 {
+            color: $second-color;
+            font-family: $secondary-header-font;
+            font-size: map-get($map: $font-sizes, $key: "h6");
+            letter-spacing: 2.36px;
+            font-weight: 400;
+            margin-bottom: 10px;
+          }
+          p {
+            color: $main-color;
+            font-family: $primary-header-font;
+            font-size: map-get($map: $font-sizes, $key: "h5");
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}

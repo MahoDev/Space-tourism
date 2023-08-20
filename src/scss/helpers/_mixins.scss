@@ -1,0 +1,7 @@
+@use "./variables" as *;
+
+@mixin breakpoint($screen-type) {
+  @media (max-width:#{map-get($devices-max-breakpoints, $screen-type)}) {
+    @content;
+  }
+}
